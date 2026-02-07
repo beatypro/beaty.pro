@@ -25,7 +25,7 @@ export default function Footer() {
           {/* Social links */}
           <div className="flex items-center gap-3">
             <a
-              href="https://github.com"
+              href="https://github.com/beatypro"
               target="_blank"
               rel="noopener noreferrer"
               className="w-10 h-10 border border-white/6 flex items-center justify-center text-text-muted hover:text-neon hover:border-neon/25 transition-all duration-200"

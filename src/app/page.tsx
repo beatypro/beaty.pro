@@ -7,7 +7,7 @@ import Footer from '@/components/Footer';
 
 export default function Home() {
   return (
-    <main className="relative min-h-screen bg-void">
+    <main className="relative min-h-screen bg-void overflow-x-hidden">
       <Header />
       <Hero />
       <Services />

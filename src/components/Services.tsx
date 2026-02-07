@@ -107,7 +107,7 @@ export default function Services() {
               ./services
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold text-text-primary mb-4">
             What I{' '}
             <span className="text-neon text-glow-green neon-underline">Build</span>
           </h2>

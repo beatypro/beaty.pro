@@ -98,7 +98,7 @@ export default function ContactForm() {
               ./contact
             </span>
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-4">
+          <h2 className="text-2xl md:text-5xl font-bold text-text-primary mb-4">
             Let&apos;s Build Something{' '}
             <span className="text-neon text-glow-green neon-underline">Great</span>
           </h2>

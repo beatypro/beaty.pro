@@ -99,7 +99,7 @@ export default function Hero() {
         </div>
 
         {/* Main heading */}
-        <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-4 leading-[1.1] fade-up fade-up-delay-1">
+        <h1 className="text-3xl md:text-6xl lg:text-7xl font-bold tracking-tight text-text-primary mb-4 leading-[1.1] fade-up fade-up-delay-1">
           I build{' '}
           <span className="text-neon text-glow-green">
             {typedText}

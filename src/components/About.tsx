@@ -14,13 +14,16 @@ const Globe = dynamic(() => import('./Globe'), {
 const codeBlock = `const developer = {
   name: "Christopher Beaty",
   role: "Full-Stack Engineer",
-  stack: ["Next.js", "React", "TypeScript",
-          "Supabase", "PostgreSQL", "Tailwind"],
+  stack: [
+    "Next.js", "React",
+    "TypeScript", "Supabase",
+    "PostgreSQL", "Tailwind",
+  ],
   focus: [
-    "Enterprise tracking systems",
+    "Enterprise tracking",
     "Offline-first PWAs",
     "Real-time dashboards",
-    "Data visualization (SVG/D3)",
+    "Data visualization",
   ],
   approach: "Ship fast. Ship right.",
 };`;
@@ -74,7 +77,7 @@ export default function About() {
               </span>
             </div>
 
-            <h2 className="text-3xl md:text-5xl font-bold text-text-primary mb-8">
+            <h2 className="text-2xl md:text-5xl font-bold text-text-primary mb-8">
               Turning Complex Problems Into{' '}
               <span className="text-neon text-glow-green neon-underline">
                 Shipped Code
@@ -95,7 +98,7 @@ export default function About() {
                 </span>
               </div>
               {/* Code content */}
-              <pre className="px-5 py-5 font-mono text-[12px] leading-[1.7] overflow-x-auto">
+              <pre className="px-3 md:px-5 py-5 font-mono text-[11px] md:text-[12px] leading-[1.7] overflow-x-auto">
                 {codeBlock.split('\n').map((line, i) => (
                   <div key={i} className="flex">
                     <span className="inline-block w-8 text-right mr-4 text-text-muted/40 select-none text-[11px]">
