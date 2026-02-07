@@ -1,0 +1,310 @@
+@import "tailwindcss";
+
+/* ==============================================
+   Theme v3: Neon Terminal Command Center
+   Cyberpunk precision meets living data.
+   Hard edges, scanlines, phosphor glows.
+   ============================================== */
+
+:root {
+  /* Terminal blacks */
+  --void: #050505;
+  --deep: #0a0a0a;
+  --surface: #111111;
+  --elevated: #1a1a1a;
+  --card: #141414;
+
+  /* Neon accents */
+  --neon: #39ff14;
+  --neon-bright: #7fff00;
+  --neon-dim: #1a8a0a;
+  --hot-pink: #ff2d6f;
+  --electric-blue: #00d4ff;
+  --amber: #ffaa00;
+
+  /* Text hierarchy */
+  --text-primary: #e0e0e0;
+  --text-secondary: #808080;
+  --text-muted: #444444;
+
+  /* Borders */
+  --border-subtle: rgba(255, 255, 255, 0.06);
+  --border-neon: rgba(57, 255, 20, 0.3);
+}
+
+@theme inline {
+  --color-void: var(--void);
+  --color-deep: var(--deep);
+  --color-surface: var(--surface);
+  --color-elevated: var(--elevated);
+  --color-card: var(--card);
+
+  --color-neon: var(--neon);
+  --color-neon-bright: var(--neon-bright);
+  --color-neon-dim: var(--neon-dim);
+  --color-hot-pink: var(--hot-pink);
+  --color-electric-blue: var(--electric-blue);
+  --color-amber: var(--amber);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+}
+
+/* ── Typography ──────────────────────────── */
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Instrument Sans', system-ui, sans-serif;
+  background-color: var(--void);
+  color: var(--text-primary);
+  overflow-x: hidden;
+}
+
+h1, h2, h3 {
+  font-family: 'Space Mono', 'Courier New', monospace;
+}
+
+/* ── Terminal card ──────────────────────── */
+
+.terminal-card {
+  background: var(--card);
+  border: 1px solid var(--border-subtle);
+  position: relative;
+  transition: all 0.35s ease;
+}
+
+.terminal-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neon), transparent);
+  opacity: 0;
+  transition: opacity 0.35s ease;
+}
+
+.terminal-card:hover {
+  border-color: var(--border-neon);
+  box-shadow: 0 0 30px rgba(57, 255, 20, 0.04), inset 0 0 30px rgba(57, 255, 20, 0.01);
+}
+
+.terminal-card:hover::before {
+  opacity: 0.6;
+}
+
+/* ── Neon text glows ─────────────────────── */
+
+.text-glow-green {
+  text-shadow:
+    0 0 7px var(--neon),
+    0 0 20px rgba(57, 255, 20, 0.4),
+    0 0 50px rgba(57, 255, 20, 0.15);
+}
+
+.text-glow-pink {
+  text-shadow:
+    0 0 7px var(--hot-pink),
+    0 0 20px rgba(255, 45, 111, 0.4);
+}
+
+.text-glow-blue {
+  text-shadow:
+    0 0 7px var(--electric-blue),
+    0 0 20px rgba(0, 212, 255, 0.4);
+}
+
+/* ── Scanline overlay ───────────────────── */
+
+.scanlines::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 2px,
+    rgba(0, 0, 0, 0.08) 2px,
+    rgba(0, 0, 0, 0.08) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ── Grid background ─────────────────────── */
+
+.grid-bg {
+  background-image:
+    linear-gradient(rgba(57, 255, 20, 0.018) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(57, 255, 20, 0.018) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+/* ── Animations ──────────────────────────── */
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+@keyframes scanline-move {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+@keyframes flicker {
+  0%, 97%, 100% { opacity: 1; }
+  98% { opacity: 0.85; }
+  99% { opacity: 0.95; }
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-up {
+  animation: fade-up 0.6s ease-out forwards;
+  opacity: 0;
+}
+
+.fade-up-delay-1 { animation-delay: 0.1s; }
+.fade-up-delay-2 { animation-delay: 0.2s; }
+.fade-up-delay-3 { animation-delay: 0.3s; }
+.fade-up-delay-4 { animation-delay: 0.4s; }
+.fade-up-delay-5 { animation-delay: 0.5s; }
+.fade-up-delay-6 { animation-delay: 0.6s; }
+
+@keyframes pulse-ring {
+  0%, 100% {
+    box-shadow: 0 0 4px var(--neon), 0 0 12px rgba(57, 255, 20, 0.25);
+  }
+  50% {
+    box-shadow: 0 0 8px var(--neon), 0 0 24px rgba(57, 255, 20, 0.5);
+  }
+}
+
+@keyframes typing-cursor {
+  0%, 100% { border-right-color: var(--neon); }
+  50% { border-right-color: transparent; }
+}
+
+/* ── Form inputs ─────────────────────────── */
+
+input, textarea, select {
+  font-family: 'Space Mono', monospace;
+}
+
+input:focus, textarea:focus, select:focus {
+  outline: none;
+  border-color: var(--neon) !important;
+  box-shadow: 0 0 0 2px rgba(57, 255, 20, 0.1), 0 0 20px rgba(57, 255, 20, 0.05);
+}
+
+/* ── Scrollbar ───────────────────────────── */
+
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--void);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neon-dim);
+  border-radius: 2px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neon);
+}
+
+/* ── Selection ───────────────────────────── */
+
+::selection {
+  background: rgba(57, 255, 20, 0.2);
+  color: var(--text-primary);
+}
+
+/* ── Global scanline overlay ─────────────── */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.012) 3px,
+    rgba(0, 0, 0, 0.012) 6px
+  );
+  pointer-events: none;
+  z-index: 100;
+}
+
+/* ── Neon underline effect ───────────────── */
+
+.neon-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.neon-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--neon);
+  box-shadow: 0 0 8px var(--neon), 0 0 16px rgba(57, 255, 20, 0.3);
+}
+
+/* ── Corner brackets decoration ──────────── */
+
+.corner-brackets {
+  position: relative;
+}
+
+.corner-brackets::before,
+.corner-brackets::after {
+  content: '';
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-color: var(--neon);
+  opacity: 0.3;
+  transition: opacity 0.3s ease;
+}
+
+.corner-brackets::before {
+  top: -1px;
+  left: -1px;
+  border-top: 1px solid;
+  border-left: 1px solid;
+}
+
+.corner-brackets::after {
+  bottom: -1px;
+  right: -1px;
+  border-bottom: 1px solid;
+  border-right: 1px solid;
+}
+
+.corner-brackets:hover::before,
+.corner-brackets:hover::after {
+  opacity: 0.7;
+}
